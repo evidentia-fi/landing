@@ -1,0 +1,27 @@
+---
+const tickers = [
+  'GB3:GOV',
+  'GB6:GOV',
+  'GTGBP2Y:GOV',
+  'GTGBP5Y:GOV',
+  'GTJPY2Y:GOV',
+  'BATS:GOVT',
+  'FRA:SXRQ',
+  'NYSEARCA:SGOV',
+  'NASDAQ:TLT',
+  'NASDAQ:VGSH',
+  'NASDAQ:VGIT',
+  'GTDEM2Y:GOV',
+  'GTDEM5Y:GOV',
+  'GTAUD2Y:GOV',
+  'GTAUD5Y:GOV',
+];
+
+const repeated = [...tickers, ...tickers];
+---
+
+<div class="ticker-strip" aria-label="Supported bond and ETF tickers">
+  <div class="ticker-track">
+    {repeated.map(ticker => <span>{ticker}</span>)}
+  </div>
+</div>

@@ -1,0 +1,23 @@
+---
+const tokens = [
+  { title: 'Ethereum', image: 'eth' },
+  { title: 'Tron', image: 'tron' },
+  { title: 'Base', image: 'base' },
+  { title: 'Solana', image: 'solana' },
+  { title: 'Whitechain', image: 'whitechain' },
+];
+---
+
+<section class="powered container">
+  <h2>Powered by</h2>
+  <div class="token-grid">
+    {
+      tokens.map(token => (
+        <article class="token-card">
+          <img src={`/tokens/${token.image}.svg`} alt="" width="64" height="64" loading="lazy" />
+          <h3>{token.title}</h3>
+        </article>
+      ))
+    }
+  </div>
+</section>

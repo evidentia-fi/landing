@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Evidentia',
+  description = 'Unlock real yield with bond-backed stablecoins.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/bg-home.webp" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script>
+      const menuButton = document.querySelector('[data-menu-button]');
+      const menu = document.querySelector('[data-mobile-menu]');
+      const closeButton = document.querySelector('[data-menu-close]');
+
+      function setMenu(open) {
+        menu?.toggleAttribute('data-open', open);
+        menuButton?.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
+      }
+
+      menuButton?.addEventListener('click', () => setMenu(true));
+      closeButton?.addEventListener('click', () => setMenu(false));
+      menu?.addEventListener('click', event => {
+        if (event.target === menu) {
+          setMenu(false);
+        }
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          setMenu(false);
+        }
+      });
+    </script>
+  </body>
+</html>
