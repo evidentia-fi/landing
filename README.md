@@ -1,43 +1,66 @@
-# Astro Starter Kit: Minimal
+# Evidentia Landing
+
+Static landing page for Evidentia, built with Astro.
+
+## Requirements
+
+- Node.js `>=22.12.0`
+- npm
+
+## Development
+
+Install dependencies:
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start the local dev server:
 
-## 🚀 Project Structure
+```sh
+npm run dev
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+Astro will print the local URL, usually `http://localhost:4321/`.
+
+## Build
+
+Create a production static build:
+
+```sh
+npm run build
+```
+
+The generated site is written to `dist/`.
+
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+## Project Structure
 
 ```text
 /
 ├── public/
+│   ├── fonts/
+│   ├── tokens/
+│   ├── bg-home.webp
+│   ├── bg-contact-us.webp
+│   └── docs.html
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Notes
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Fonts are self-hosted from `public/fonts/`.
+- Token/network icons are stored in `public/tokens/`.
+- `public/docs.html` is copied directly into the static build.
